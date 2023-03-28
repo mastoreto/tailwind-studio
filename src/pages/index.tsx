@@ -1,7 +1,7 @@
 import {type NextPage } from 'next';
 
-import SideBar from '@/components/SideBar';
-import Header from '@/components/Header';
+import SideBar from '@components/SideBar';
+import Header from '@components/Header';
 
 const Dashboard:NextPage = () => {
 

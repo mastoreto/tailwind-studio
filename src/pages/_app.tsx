@@ -1,9 +1,10 @@
 import { type AppType } from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
+import { Provider } from "react-redux";
 
-import { api } from "@/utils/api";
-
+import { api } from "@utils/api";
+import store from "@redux/store";
 import "@/styles/globals.css";
 
 const MyApp: AppType<{ session: Session | null }> = ({
@@ -11,9 +12,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
+    
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+     <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </SessionProvider>
+
   );
 };
 
